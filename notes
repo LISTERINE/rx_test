@@ -1,0 +1,18 @@
+The on_next method is a good starting point to get insight
+https://github.com/ReactiveX/RxPY/blob/master/rx/subjects/subject.py#L78
+
+A subject is observed by an observer.
+The subject will "feed" observers new data points.
+The data points are used by the observers satisfy their conditions.
+
+
+Look in rx/linq/observable for the observeable list.
+
+To understand how the observables are made available as methods, look
+at the following code (from rx/linq/observable/windowwithcount):
+
+@add_metaclass(ExtensionMethod)
+class ObservableWindowWithCount(Observable):
+    """Uses a meta class to extend Observable with the methods in this class"""
+
+A little too much magic for me, but still very effective
